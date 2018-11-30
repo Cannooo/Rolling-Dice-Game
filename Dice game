@@ -1,0 +1,164 @@
+from random import randint
+import time
+
+PlayerOneScore = 0
+PlayerTwoScore = 0
+
+PlayerOneTurns = 0
+PlayerTwoTurns = 0
+
+PlayerOneTurn = True
+PlayerTwoTurn = False
+
+Over = False
+
+while Over == False:
+    while PlayerOneTurn == True:
+        print(" ")
+        print("Player One's Turn!")
+        print(" ")
+        playerOneRoll = input("Enter 1 to roll your dice: ")
+
+        if playerOneRoll == "1":
+            print(" ")
+            print("Rolling dice...")
+            time.sleep(2)
+            print(" ")
+            DiceRollOne = randint(1, 6)
+            PlayerOneScore = PlayerOneScore + DiceRollOne
+            print("First Dice Roll Is", DiceRollOne)
+            time.sleep(2)
+            print(" ")
+            oddoreven = (DiceRollOne % 2)
+            if oddoreven == 0:
+                PlayerOneScore = PlayerOneScore + 10
+                print("Even! Added 10 to player one's score!")
+                time.sleep(2)
+                print(" ")
+            if oddoreven >= 1:
+                PlayerOneScore = PlayerOneScore - 5
+                print("Odd! Taken away 5 from player one's score!")
+                time.sleep(2)
+                print(" ")
+
+    ##############################################################
+
+            print("Rolling dice...")
+            time.sleep(2)
+            print(" ")
+            DiceRollTwo = randint(1, 6)
+            PlayerOneScore = PlayerOneScore + DiceRollTwo
+            print("Second dice roll is", DiceRollTwo)
+            time.sleep(2)
+            print(" ")
+            oddoreven = (DiceRollTwo % 2)
+            if oddoreven == 0:
+                PlayerOneScore = PlayerOneScore + 10
+                print("Even! Added 10 to player's one score")
+                time.sleep(2)
+                print(" ")
+            if oddoreven >= 1:
+                PlayerOneScore = PlayerOneScore - 5
+                print("Odd! Taken away 5 from player one's score!")
+                time.sleep(2)
+                print(" ")
+
+        if DiceRollOne == DiceRollTwo:
+            PlayerOneTurn = True
+            PlayerTwoTurn = False
+            print("Double! Roll again!")
+            time.sleep(2)
+            print(" ")
+        else:
+            print("Player One's current score is", PlayerOneScore)
+            time.sleep(2)
+            print(" ")
+            print(" ")
+            PlayerOneTurns = PlayerOneTurns + 1
+            PlayerOneTurn = False
+            PlayerTwoTurn = True
+    else:
+        PlayerOneTurn = False
+        PlayerTwoTrun = True
+
+   ##################################################################
+   ##################################################################
+
+    while PlayerTwoTurn == True:
+        print(" ")
+        print("Player Two's Turn!")
+        print(" ")
+        playerTwoRoll = input("Enter 1 to roll your dice: ")
+        print(" ")
+
+        if playerTwoRoll == "1":
+            print("Rolling dice...")
+            time.sleep(2)
+            print(" ")
+            DiceRollOne = randint(1, 6)
+            PlayerTwoScore = PlayerTwoScore + DiceRollOne
+            print("First Dice Roll Is", DiceRollOne)
+            print(" ")
+            oddoreven = (DiceRollOne % 2)
+            if oddoreven == 0:
+                PlayerTwoScore = PlayerTwoScore + 10
+                print("Even! Added 10 to player two's score!")
+                time.sleep(2)
+                print(" ")
+            if oddoreven >= 1:
+                PlayerTwoScore = PlayerTwoScore - 5
+                print("Odd! Taken away 5 from player two's score!")
+                time.sleep(2)
+                print(" ")
+
+    ##############################################################
+
+            print("Rolling dice...")
+            time.sleep(2)
+            print(" ")
+            DiceRollTwo = randint(1, 6)
+            PlayerTwoScore = PlayerTwoScore + DiceRollTwo
+            print("Second dice roll is", DiceRollTwo)
+            print(" ")
+            oddoreven = (DiceRollTwo % 2)
+            if oddoreven == 0:
+                PlayerTwoScore = PlayerTwoScore + 10
+                print("Even! Added 10 to player two's score!")
+                time.sleep(2)
+                print(" ")
+            if oddoreven >= 1:
+                PlayerTwoScore = PlayerTwoScore - 5
+                print("Odd! Taken away 5 from player two's score!")
+                time.sleep(2)
+                print(" ")
+
+        if DiceRollOne == DiceRollTwo:
+            PlayerOneTurn = False
+            PlayerTwoTurn = True
+            print("Double! Roll again!")
+            time.sleep(2)
+            print(" ")
+        else:
+            print("Player Two's current score is", PlayerTwoScore)
+            time.sleep(2)
+            print(" ")
+            print(" ")
+            PlayerTwoTurns = PlayerTwoTurns + 1
+            if PlayerTwoTurns == 5:
+                Over = True
+            PlayerOneTurn = True
+            PlayerTwoTurn = False
+    else:
+        PlayerOneTurn = True
+        PlayerTwoTrun = False
+
+else:
+    print("Game Finished!")
+    time.sleep(1)
+    print(" ")
+    print("Player One had a score of", PlayerOneScore)
+    time.sleep(1)
+    print(" ")
+    print("Player Two had a score of", PlayerTwoScore)
+    
+
